@@ -1,15 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class Transition : MonoBehaviour {
+namespace QG {
+	[RequireComponent(typeof(Button))]
+	public class Transition : MonoBehaviour {
 
+		private Button mainButton;
 
-    private Button mainButton;
+		[Tooltip("Переход в эту комнату.")]
+		public Room to;
 
-	private void Awake() {
-		mainButton = GetComponent<Button>();
+		public event UnityAction<Transition> onClick;
+
+		private void Awake() {
+			if(to == null) {
+				Debug.LogError("Transition doesn't have Room");
+				return;
+			}
+
+			mainButton = GetComponent<Button>();
+			mainButton.onClick.AddListener(()=> { onClick.Invoke(this); });
+		}
 	}
 }
