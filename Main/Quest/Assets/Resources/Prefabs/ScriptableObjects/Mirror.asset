@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 555435ec-2908-4fdc-87dd-51baa2aedc36
   itemName: 
   itemDescription: 
-  itemIcon: {fileID: 2278108887555276623, guid: 8fb5d2f700227714d8690516288304ef, type: 3}
+  itemIcon: {fileID: -4979238099594436871, guid: 8fb5d2f700227714d8690516288304ef, type: 3}
   itemIconOrientation: {x: 0, y: 0, z: 0}

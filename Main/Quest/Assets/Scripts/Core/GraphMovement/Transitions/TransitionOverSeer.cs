@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace QG {
@@ -28,7 +27,5 @@ namespace QG {
 			mainRoom.RoomSwitchEnable(false);
 			sender.to.RoomSwitchEnable(true);
 		}
-
-
 	}
 }
