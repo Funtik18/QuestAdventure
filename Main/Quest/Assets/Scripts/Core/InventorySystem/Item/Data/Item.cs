@@ -2,6 +2,7 @@
 using UnityEngine;
 
 namespace QG.InventorySystem {
+    [CreateAssetMenu(fileName = "Item", menuName = "GQ/Inventory/Items/BaseItem")]
     public class Item : ScriptableObject {
         [ReadOnly]
         [SerializeField]
@@ -13,5 +14,9 @@ namespace QG.InventorySystem {
         [TextArea]
         public string itemDescription;
 
+        [Header("Icon")]
+        public Sprite itemIcon;
+        [SerializeField]
+        private Vector3 itemIconOrientation = Vector3.zero;//TODO
     }
 }
