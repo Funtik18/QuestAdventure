@@ -8,11 +8,19 @@ namespace QG.InventorySystem {
 
         private InventoryOverSeer overSeer;
 
+		 public List<Item> items;
+
 		private void Awake() {
 			overSeer = InventoryOverSeer.GetInstance();
 			if(currentContainer == null) {
 				currentContainer = GetComponentInChildren<InventoryContainer>();
 			}
+			items = new List<Item>();
+		}
+
+		public void AddItem(Item item) {
+			items.Add(item);
+			currentContainer.RefreshContainer();
 		}
 	}
 }

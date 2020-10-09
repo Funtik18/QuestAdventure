@@ -30,6 +30,8 @@ namespace QG.InventorySystem {
 				_instance.Init();
 				if(DragItems._instance == null)
 					DragItems.Init();
+				if (ModelView._instance == null)
+					ModelView.Init();
 			}
 			return _instance;
 		}
