@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace QG.Help {
 
     public class CanvasGroupHelper {
-		public static void EnableGameObject(CanvasGroup canvasGroup, bool iteract = false) {
-			canvasGroup.alpha = 1;
-			canvasGroup.blocksRaycasts = iteract;
-			canvasGroup.interactable = iteract;
-
+		public static void ActiveGameObject(CanvasGroup canvasGroup, bool iteract = false) {
+			canvasGroup.alpha = Convert.ToInt32(iteract);
+			EnableGameObject(canvasGroup, iteract);
 		}
-		public static void DisableGameObject(CanvasGroup canvasGroup, bool iteract = false) {
-			canvasGroup.alpha = 0;
+
+		public static void EnableGameObject(CanvasGroup canvasGroup, bool iteract = false) {
 			canvasGroup.blocksRaycasts = iteract;
 			canvasGroup.interactable = iteract;
 		}

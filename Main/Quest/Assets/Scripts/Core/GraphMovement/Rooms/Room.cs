@@ -12,8 +12,7 @@ namespace QG {
 			canvasGroup = GetComponent<CanvasGroup>();
 		}
 		public void RoomSwitchEnable(bool triger = false) {
-			if(triger) CanvasGroupHelper.EnableGameObject(canvasGroup, triger);
-			else CanvasGroupHelper.DisableGameObject(canvasGroup, triger);
+			CanvasGroupHelper.ActiveGameObject(canvasGroup, triger);
 		}
 	}
 }
