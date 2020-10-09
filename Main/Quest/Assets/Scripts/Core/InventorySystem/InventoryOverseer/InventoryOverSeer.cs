@@ -13,8 +13,6 @@ namespace QG.InventorySystem {
 		[HideInInspector] public List<Inventory> containers;
 
 		[HideInInspector] public Transform rootParent;
-		
-		[HideInInspector] public ItemModel lastModel;
 
 		[HideInInspector] public bool isDrag = false;
 

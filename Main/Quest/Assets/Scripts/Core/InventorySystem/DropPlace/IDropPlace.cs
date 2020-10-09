@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace QG.InventorySystem {
-	public class InventorySlot : MonoBehaviour, IDropUI {
+	public class IDropPlace : MonoBehaviour, IDropUI {
 		public void OnDrop(PointerEventData eventData) {
-			eventData.selectedObject.transform.SetParent(transform);
-			eventData.selectedObject.transform.localPosition = Vector3.zero;
+			ItemModel2D itemModel = eventData.selectedObject.GetComponent<ItemModel2D>();
+			if (itemModel) {
+				DestroyImmediate(itemModel.gameObject);
+			}
 		}
 	}
 }
