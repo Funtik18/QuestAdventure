@@ -17,5 +17,5 @@ namespace QG.InventorySystem {
             if (_instance == null)
                 _instance = this;
         }
-	}
+    }
 }

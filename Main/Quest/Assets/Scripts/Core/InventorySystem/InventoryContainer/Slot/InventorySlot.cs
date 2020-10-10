@@ -1,28 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using QG.Events;
-using QG.Help;
+﻿using QG.Help;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace QG.InventorySystem {
-	[RequireComponent(typeof(CanvasGroup))]
-	public class InventorySlot : MonoBehaviour, IDropUI {
+	public class InventorySlot : MonoBehaviour {
 
 		[HideInInspector] public Item currentItem;
 
+		[HideInInspector] public InventorySlotDropPlace dropPlace;
 		[HideInInspector] public InventorySlotIcon icon;
-
-		public UnityAction<InventorySlot, PointerEventData> onDropSlot;
-
-		private CanvasGroup canvasGroup;
 
 		public bool isEmpty { get { return currentItem == null; } }
 
 		private void Awake() {
-			canvasGroup = GetComponent<CanvasGroup>();
+			dropPlace = GetComponentInChildren<InventorySlotDropPlace>();
 			icon = GetComponentInChildren<InventorySlotIcon>();
 		}
 
@@ -32,14 +22,6 @@ namespace QG.InventorySystem {
 				icon.SetSprite(currentItem.itemIcon).ActiveView(true);
 			else
 				icon.ActiveView(false);
-		}
-
-		public void OnDrop(PointerEventData eventData) {
-			onDropSlot?.Invoke(this, eventData);
-		}
-
-		public void EnableView(bool trigger) {
-			CanvasGroupHelper.EnableGameObject(canvasGroup, trigger);
 		}
 	}
 }

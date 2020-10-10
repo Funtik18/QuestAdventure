@@ -6,23 +6,24 @@ namespace QG.InventorySystem {
     public class Inventory : MonoBehaviour {
         public InventoryContainer currentContainer;
 
-		private InventoryOverSeer overSeer;
+		[HideInInspector] public InventoryOverSeer overSeer;
 
-		public List<Item> items;
+		public List<Item> items = new List<Item>();
 
 		private void Awake() {
 			overSeer = InventoryOverSeer.GetInstance();
 			if(currentContainer == null) {
 				currentContainer = GetComponentInChildren<InventoryContainer>();
 			}
-			items = new List<Item>();
+			items = new List<Item>(items);
 		}
 
 
 		public void AddItem(Item item) {
 			currentContainer.AddItem(item);
-			//items.Add(item);
-			//currentContainer.RefreshContainer();
+		}
+		public void RemoveItem(Item item) {
+			currentContainer.RemoveItem(item);
 		}
 	}
 }

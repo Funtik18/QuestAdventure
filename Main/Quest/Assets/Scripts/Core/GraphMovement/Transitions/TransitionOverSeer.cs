@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace QG {
 	public class TransitionOverSeer : MonoBehaviour {
-		public List<Transition> transitions;
+		private List<Transition> transitions;
 
 		private Room mainRoom;
 
@@ -13,10 +14,7 @@ namespace QG {
 				Debug.LogError("Current Transition doesn't have Room");
 				return;
 			}
-			if (transitions.Count == 0) {
-				Debug.LogError(mainRoom.roomName + " doesn't have transitions");
-				return;
-			}
+			transitions = GetComponentsInChildren<Transition>().ToList();
 
 			for (int i = 0; i < transitions.Count; i++) {
 				transitions[i].onClick += ChangeRoom;
