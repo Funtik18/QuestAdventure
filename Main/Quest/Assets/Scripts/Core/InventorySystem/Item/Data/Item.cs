@@ -20,5 +20,9 @@ namespace QG.InventorySystem {
         private Vector3 itemIconOrientation = Vector3.zero;//TODO
 
         [HideInInspector] public Vector2 rootPosition = Vector2.zero;
+
+        public Item GetCopy() {
+            return Instantiate(this);
+        }
     }
 }

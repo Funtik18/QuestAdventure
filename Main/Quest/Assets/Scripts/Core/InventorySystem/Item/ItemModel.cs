@@ -13,6 +13,7 @@ namespace QG.InventorySystem {
 
 		protected virtual void Awake() {
 			canvasGroup = GetComponent<CanvasGroup>();
+			item = item.GetCopy();//лучше скопировать объект.
 		}
 
 		public virtual void OnBeginDrag(PointerEventData eventData) { }

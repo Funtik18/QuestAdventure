@@ -10,7 +10,7 @@ namespace QG.InventorySystem {
 
 		protected override void Awake() {
 			base.Awake();
-			item.rootPosition = transform.localPosition;
+			item.rootPosition = transform.localPosition;//сохрание позиции где предмет находился
 			overSeer = InventoryOverSeer.GetInstance();
 		}
 

@@ -6,9 +6,9 @@ namespace QG.InventorySystem {
     public class Inventory : MonoBehaviour {
         public InventoryContainer currentContainer;
 
-        private InventoryOverSeer overSeer;
+		private InventoryOverSeer overSeer;
 
-		 public List<Item> items;
+		public List<Item> items;
 
 		private void Awake() {
 			overSeer = InventoryOverSeer.GetInstance();
@@ -18,9 +18,11 @@ namespace QG.InventorySystem {
 			items = new List<Item>();
 		}
 
+
 		public void AddItem(Item item) {
-			items.Add(item);
-			currentContainer.RefreshContainer();
+			currentContainer.AddItem(item);
+			//items.Add(item);
+			//currentContainer.RefreshContainer();
 		}
 	}
 }
