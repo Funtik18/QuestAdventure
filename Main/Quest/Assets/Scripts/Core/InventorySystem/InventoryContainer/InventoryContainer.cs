@@ -16,7 +16,8 @@ namespace QG.InventorySystem {
 			overSeer = inventory.overSeer;
 			buffer = DragBuffer._instance;
 			slots = GetComponentsInChildren<InventorySlot>().ToList();
-
+		}
+		private void Start() {
 			foreach (InventorySlot slot in slots) {
 				slot.icon.onBeginDrag = OnBeginDrag;
 				slot.icon.onDrag = OnDrag;

@@ -10,10 +10,16 @@ namespace QG.InventorySystem {
         [SerializeField] private Image view;
         [SerializeField] private Button buttonPickup;
         private CanvasGroup canvasGroup;
+        private CanvasGroup CanvasGroup {
+            get {
+                if (canvasGroup == null) {
+                    canvasGroup = GetComponent<CanvasGroup>();
+                }
+                return canvasGroup;
+            }
+        }
 
-		private void Awake() {
-            canvasGroup = GetComponent<CanvasGroup>();
-
+        private void Awake() {
             buttonPickup.onClick.AddListener(ButtonClick);
 
         }
@@ -35,7 +41,7 @@ namespace QG.InventorySystem {
 		}
 
 		public void ActiveView(bool trigger) {
-            CanvasGroupHelper.ActiveGameObject(canvasGroup, trigger);
+            CanvasGroupHelper.ActiveGameObject(CanvasGroup, trigger);
 		}
     }
 }

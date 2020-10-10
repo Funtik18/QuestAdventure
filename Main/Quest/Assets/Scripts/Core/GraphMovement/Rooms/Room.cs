@@ -7,12 +7,16 @@ namespace QG {
 		public string roomName;
 
 		private CanvasGroup canvasGroup;
-
-		private void Awake() {
-			canvasGroup = GetComponent<CanvasGroup>();
+		private CanvasGroup CanvasGroup {
+			get { 
+				if(canvasGroup == null) {
+					canvasGroup = GetComponent<CanvasGroup>();
+				}
+				return canvasGroup;
+			}
 		}
-		public void RoomSwitchEnable(bool triger = false) {
-			CanvasGroupHelper.ActiveGameObject(canvasGroup, triger);
+		public void ActiveRoom(bool triger = false) {
+			CanvasGroupHelper.ActiveGameObject(CanvasGroup, triger);
 		}
 	}
 }

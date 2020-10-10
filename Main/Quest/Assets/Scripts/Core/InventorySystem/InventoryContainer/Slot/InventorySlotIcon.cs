@@ -18,10 +18,13 @@ namespace QG.InventorySystem {
         public UnityAction<InventorySlot, PointerEventData> onDrag;
         public UnityAction<InventorySlot, PointerEventData> onEndDrag;
 
+        private InventorySlot owner;
 
         private void Awake() {
             icon = GetComponent<Image>();
             canvasGroup = GetComponent<CanvasGroup>();
+
+            owner = GetComponentInParent<InventorySlot>();
 
             ActiveView(false);
         }
@@ -35,13 +38,13 @@ namespace QG.InventorySystem {
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
-            onBeginDrag?.Invoke(GetComponentInParent<InventorySlot>(), eventData);
+            onBeginDrag?.Invoke(owner, eventData);
         }
 		public void OnDrag(PointerEventData eventData) {
-            onDrag?.Invoke(GetComponentInParent<InventorySlot>(), eventData);
+            onDrag?.Invoke(owner, eventData);
         }
         public void OnEndDrag(PointerEventData eventData) {
-            onEndDrag?.Invoke(GetComponentInParent<InventorySlot>(), eventData);
+            onEndDrag?.Invoke(owner, eventData);
         }
     }
 }

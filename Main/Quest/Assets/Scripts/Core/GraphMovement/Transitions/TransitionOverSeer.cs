@@ -6,12 +6,12 @@ namespace QG {
 	public class TransitionOverSeer : MonoBehaviour {
 		private List<Transition> transitions;
 
-		private Room mainRoom;
+		private Room rootRoom;
 
 		private void Awake() {
-			mainRoom = GetComponentInParent<Room>();
-			if(mainRoom == null) {
-				Debug.LogError("Current Transition doesn't have Room");
+			rootRoom = GetComponentInParent<Room>();
+			if(rootRoom == null) {
+				Debug.LogError("Current Transition doesn't have root Room");
 				return;
 			}
 			transitions = GetComponentsInChildren<Transition>().ToList();
@@ -22,8 +22,8 @@ namespace QG {
 		}
 
 		private void ChangeRoom(Transition sender) {
-			mainRoom.RoomSwitchEnable(false);
-			sender.to.RoomSwitchEnable(true);
+			rootRoom.ActiveRoom(false);
+			sender.to.ActiveRoom(true);
 		}
 	}
 }
