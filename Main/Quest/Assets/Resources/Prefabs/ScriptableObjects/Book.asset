@@ -12,9 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6017a5fff3e0d4ba311921acdccaa2, type: 3}
   m_Name: Book
   m_EditorClassIdentifier: 
-  itemID: 07d69f0c-8918-4f46-a2e6-19640f534d77
-  itemName: 
-  itemDescription: 
-  itemIcon: {fileID: 9082196570024552953, guid: 8fb5d2f700227714d8690516288304ef, type: 3}
-  itemIconOrientation: {x: 0, y: 0, z: 0}
-  rootPosition: {x: 0, y: 0}
+  itemID: 544ef9b9-8222-4963-8112-30c83e02abc4
+  bookPrefab: {fileID: 1965121547242420338, guid: 0f558f9ec0ac18e468b174c3c0405609, type: 3}

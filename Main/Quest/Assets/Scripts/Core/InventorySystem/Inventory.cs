@@ -8,21 +8,21 @@ namespace QG.InventorySystem {
 
 		[HideInInspector] public InventoryOverSeer overSeer;
 
-		public List<Item> items = new List<Item>();
+		public List<ItemPick> items = new List<ItemPick>();
 
 		private void Awake() {
 			overSeer = InventoryOverSeer.GetInstance();
 			if(currentContainer == null) {
 				currentContainer = GetComponentInChildren<InventoryContainer>();
 			}
-			items = new List<Item>(items);
+			items = new List<ItemPick>(items);
 		}
 
 
-		public void AddItem(Item item) {
+		public void AddItem(ItemPick item) {
 			currentContainer.AddItem(item);
 		}
-		public void RemoveItem(Item item) {
+		public void RemoveItem(ItemPick item) {
 			currentContainer.RemoveItem(item);
 		}
 	}

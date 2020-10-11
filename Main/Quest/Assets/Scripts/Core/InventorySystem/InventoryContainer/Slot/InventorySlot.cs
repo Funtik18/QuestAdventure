@@ -4,7 +4,7 @@ using UnityEngine;
 namespace QG.InventorySystem {
 	public class InventorySlot : MonoBehaviour {
 
-		[HideInInspector] public Item currentItem;
+		[HideInInspector] public ItemPick currentItem;
 
 		[HideInInspector] public InventorySlotDropPlace dropPlace;
 		[HideInInspector] public InventorySlotIcon icon;
@@ -16,7 +16,7 @@ namespace QG.InventorySystem {
 			icon = GetComponentInChildren<InventorySlotIcon>();
 		}
 
-		public void SetItem(Item newItem) {
+		public void SetItem(ItemPick newItem) {
 			currentItem = newItem;
 			if (currentItem != null)
 				icon.SetSprite(currentItem.itemIcon).ActiveView(true);

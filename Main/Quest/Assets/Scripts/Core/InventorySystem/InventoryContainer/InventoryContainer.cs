@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace QG.InventorySystem {
     public class InventoryContainer : MonoBehaviour {
 		private Inventory inventory;
-		private List<Item> items { get { return inventory.items; } }
+		private List<ItemPick> items { get { return inventory.items; } }
 
 		private List<InventorySlot> slots;
 		
@@ -27,7 +27,7 @@ namespace QG.InventorySystem {
 			}
 		}
 
-		public void AddItem(Item item) {
+		public void AddItem(ItemPick item) {
 			items.Add(item);
 			for (int i = 0; i < slots.Count; i++) {
 				if (slots[i].isEmpty) {
@@ -39,7 +39,7 @@ namespace QG.InventorySystem {
 			Debug.LogError("Inventory Full");
 		}
 
-		public void RemoveItem(Item item) {
+		public void RemoveItem(ItemPick item) {
 			items.Remove(item);
 			RefreshContainer();
 		}
@@ -92,13 +92,14 @@ namespace QG.InventorySystem {
 		/// <param name="slot"></param>
 		/// <param name="eventData"></param>
 		public void OnDropSlot(InventorySlot slot, PointerEventData eventData) {
+			if (eventData.selectedObject == null) return;
 			ItemModel model = eventData.selectedObject.GetComponent<ItemModel>();
 			if (model == null) {
 				Debug.LogError("Error HERE");
 				return;
 			}
-			items.Add(model.item);
-			slot.SetItem(model.item);
+			//items.Add(model.item);
+			//slot.SetItem(model.item);
 			slot.dropPlace.EnableView(false);
 
 
