@@ -14,7 +14,7 @@ namespace QG.InventorySystem {
 			if (inventory == null)
 				inventory = GetComponentInParent<Inventory>();
 			overSeer = inventory.overSeer;
-			buffer = DragBuffer._instance;
+			buffer = DragBuffer.GetInstance();
 			slots = GetComponentsInChildren<InventorySlot>().ToList();
 		}
 		private void Start() {

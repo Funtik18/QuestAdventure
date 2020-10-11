@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace QG.InventorySystem {
+    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Button))]
     [RequireComponent(typeof(CanvasGroup))]
     public class ViewItemUI : MonoBehaviour {
-        [SerializeField] private Image view;
-        [SerializeField] private Button buttonPickup;
+        private Image view;
+        private Button buttonPickup;
         private CanvasGroup canvasGroup;
         private CanvasGroup CanvasGroup {
             get {
@@ -20,8 +22,9 @@ namespace QG.InventorySystem {
         }
 
         private void Awake() {
+            view = GetComponent<Image>();
+            buttonPickup = GetComponent<Button>();
             buttonPickup.onClick.AddListener(ButtonClick);
-
         }
 
         private void ButtonClick() {

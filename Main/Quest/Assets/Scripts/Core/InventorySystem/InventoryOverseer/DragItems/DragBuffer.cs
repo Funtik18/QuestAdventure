@@ -17,9 +17,15 @@ namespace QG.InventorySystem {
 
         [HideInInspector]public InventorySlot refFrom;
 
+        public static DragBuffer GetInstance() {
+            if (_instance == null)
+                _instance = FindObjectOfType<DragBuffer>();
+            return _instance;
+        }
         private void Awake() {
             if (_instance == null)
                 _instance = this;
+        
             image = GetComponent<Image>();
             canvasGroup = GetComponent<CanvasGroup>();
 

@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 
 namespace QG.InventorySystem {
 	/// <summary>
+	/// Это определёная область, с которой возможно взаимодействие.
 	/// При нажатии на эту модель включается Model View для детального просмотра.
 	/// </summary>
+	[RequireComponent(typeof(ImageMask))]
 	public class ItemViewModel : ItemModel {
 
 		public override void OnBeginDrag(PointerEventData eventData) { }
