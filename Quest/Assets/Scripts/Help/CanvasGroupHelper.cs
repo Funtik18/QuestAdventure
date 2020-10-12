@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace QG.Help {
-    public class CanvasGroupHelper {
+    public static class CanvasGroupHelper {
 		public static void ActiveGameObject(CanvasGroup canvasGroup, bool iteract = false) {
 			canvasGroup.alpha = Convert.ToInt32(iteract);
 			EnableGameObject(canvasGroup, iteract);
